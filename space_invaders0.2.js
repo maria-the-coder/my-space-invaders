@@ -2,6 +2,12 @@
 var canvas = document.getElementById('gameCanvas');
 var ctx = canvas.getContext('2d');
 
+
+// make canvas full screen
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+
 var shootSound = new Audio('shoot.mp3');
 var explosionSound = new Audio('explosion.mp3');
 var gameOverSoundWin = new Audio('win.mp3');
