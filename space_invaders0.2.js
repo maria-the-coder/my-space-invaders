@@ -197,11 +197,12 @@ function draw() {
 }
 
 
-
+// Event listeners for moving the player
 let isShooting = false;
 let isGoLeft = false;
 let isGoRight = false;
 
+// Event listeners for moving the player on keyboard, key down
 window.addEventListener('keydown', event => {
     switch (event.key) {
         case 'ArrowLeft':
@@ -215,7 +216,7 @@ window.addEventListener('keydown', event => {
             break;
     }
 });
-
+// Event listeners for moving the player on keyboard, key up
 window.addEventListener('keyup', event => {
     switch (event.key) {
         case 'ArrowLeft':
@@ -229,6 +230,29 @@ window.addEventListener('keyup', event => {
             break;
     }
 });
+// controls for mobile
+// if swipe right move right
+// if swipe left move left
+// if tap shoot
+
+// Event listeners for moving the player on mobile, touch start
+window.addEventListener('touchstart', event => {
+    if (event.touches[0].clientX < canvas.width / 2) {
+        isGoLeft = true;
+    } else {
+        isGoRight = true;
+    }
+    isShooting = true;
+});
+// Event listeners for moving the player on mobile, touch end
+window.addEventListener('touchend', event => {
+    isGoLeft = false;
+    isGoRight = false;
+    isShooting = false;
+});
+
+
+
 
 // Main game loop
 function gameLoop() {
